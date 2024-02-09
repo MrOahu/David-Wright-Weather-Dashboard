@@ -7,14 +7,14 @@ searchBtn.addEventListener("click", function(){
     console.log(searchInput)
 
     // use searchInput to fulfill cityname parameter in geoCode
-    //geoCode(searchInput)
+    geoCode(searchInput)
 })
 
 function geoCode(cityname){
-fetch (``)
+fetch (`http://api.openweathermap.org/geo/1.0/direct?q=${cityname}&limit=5&appid=${APIkey}`)
 .then(response => response.json())
 .then(weatherData => {
     console.log(weatherData)
-    
+
 })
 }
