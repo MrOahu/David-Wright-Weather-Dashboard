@@ -26,6 +26,12 @@ function currentWeather(lat, lon){
     .then(response => response.json())
     .then(currentData => {
         console.log(currentData)
+
+    document.querySelector("#today").innerHTML = ""  
+
+  var currentCard = document.createElement("div")
+  currentCard.setAttribute("class", "currentCard")
+  
   var city = document.createElement("h2")
   city.textContent = currentData.name
 
@@ -36,10 +42,10 @@ function currentWeather(lat, lon){
   humid.textContent = "Humidity: " + currentData.main.humidity + "%"
 
   var wind = document.createElement("h3")
-  wind.textContent = "Wind Speed " + currentData.wind.speed + "mph"
+  wind.textContent = "Wind Speed: " + currentData.wind.speed + " mph"
 
 
-
-    document.querySelector("#today").append(city, temp, humid, wind)
+currentCard.append(city, temp, humid, wind)
+document.querySelector("#today").append(currentCard)
     })
 }
