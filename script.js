@@ -28,12 +28,18 @@ function currentWeather(lat, lon){
         console.log(currentData)
   var city = document.createElement("h2")
   city.textContent = currentData.name
-var temp = document.createElement("h3")
-temp.textContent = "Temperature: " + currentData.main.temp + " F "
+
+  var temp = document.createElement("h3")
+  temp.textContent = "Temperature: " + currentData.main.temp + " F "
+
+  var humid = document.createElement("h3")
+  humid.textContent = "Humidity: " + currentData.main.humidity + "%"
+
+  var wind = document.createElement("h3")
+  wind.textContent = "Wind Speed " + currentData.wind.speed + "mph"
 
 
 
-
-        document.querySelector("#today").append(city, temp)
+    document.querySelector("#today").append(city, temp, humid, wind)
     })
 }
