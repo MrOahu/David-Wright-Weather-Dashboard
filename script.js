@@ -26,8 +26,14 @@ function currentWeather(lat, lon){
     .then(response => response.json())
     .then(currentData => {
         console.log(currentData)
-        
-        
-    
+  var city = document.createElement("h2")
+  city.textContent = currentData.name
+var temp = document.createElement("h3")
+temp.textContent = "Temperature: " + currentData.main.temp + " F "
+
+
+
+
+        document.querySelector("#today").append(city, temp)
     })
 }
