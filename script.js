@@ -17,6 +17,7 @@ fetch (`http://api.openweathermap.org/geo/1.0/direct?q=${cityname}&limit=2&appid
     console.log(weatherData)
 
 currentWeather (weatherData[0].lat, weatherData[0].lon)
+forecast (weatherData[0].lat, weatherData[0].lon)
 })
 }
 
@@ -50,5 +51,26 @@ function currentWeather(lat, lon){
 
 currentCard.append(city, icon, temp, humid, wind)
 document.querySelector("#today").append(currentCard)
+    })
+}
+
+
+function forecast(lat, lon){
+    fetch (`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIkey}&units=imperial`)
+    .then(response => response.json())
+    .then(forecastData => {
+        console.log(forecastData)
+
+    for(var i = 4; i < forecastData.list.length; i = i + 8){
+        var temp = document.createElement("h4")
+        temp.textContent = "Temperature: " + forecastData.list[i].main.temp + " F"
+
+var humid = document.createElement("h4")    
+humid.textContent = "Humidity: " + forecastData.list[i].main.humidity + "%"
+
+var wind = document.createElement("h4")
+wind.textContent = "Wind Speed: " + forecastData.list[i].wind.speed + " mph"
+        document.querySelector("#forecast").append(temp, humid, wind)
+    }
     })
 }
