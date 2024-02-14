@@ -35,8 +35,11 @@ function currentWeather(lat, lon){
   var city = document.createElement("h2")
   city.textContent = currentData.name
 
+  var icon = document.createElement("img")
+  icon.setAttribute("src", `https://openweathermap.org/img/wn/${currentData.weather[0].icon}@2x.png`)
+
   var temp = document.createElement("h3")
-  temp.textContent = "Temperature: " + currentData.main.temp + " F "
+  temp.textContent = "Temperature: " + currentData.main.temp + " F"
 
   var humid = document.createElement("h3")
   humid.textContent = "Humidity: " + currentData.main.humidity + "%"
@@ -45,7 +48,7 @@ function currentWeather(lat, lon){
   wind.textContent = "Wind Speed: " + currentData.wind.speed + " mph"
 
 
-currentCard.append(city, temp, humid, wind)
+currentCard.append(city, icon, temp, humid, wind)
 document.querySelector("#today").append(currentCard)
     })
 }
