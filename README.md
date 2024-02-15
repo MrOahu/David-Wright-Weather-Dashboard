@@ -13,5 +13,9 @@ Technologies Used: HTML, CSS, JavaScript, jQuery, day.js
 
 ## Application URL's
 
+GitHub Repository URL:
+
+Live Application URL: 
+
 ## Author
 David Wright
