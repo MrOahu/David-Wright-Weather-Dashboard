@@ -36,7 +36,10 @@ function currentWeather(lat, lon){
   var city = document.createElement("h2")
   city.textContent = currentData.name
 
-  var icon = document.createElement("img")
+  var date = document.createElement("h4")
+    date.textContent =  moment.unix(currentData.dt).format("MM/DD/YYYY")
+ 
+    var icon = document.createElement("img")
   icon.setAttribute("src", `https://openweathermap.org/img/wn/${currentData.weather[0].icon}@2x.png`)
 
   var temp = document.createElement("h3")
@@ -49,7 +52,7 @@ function currentWeather(lat, lon){
   wind.textContent = "Wind Speed: " + currentData.wind.speed + " mph"
 
 
-currentCard.append(city, icon, temp, humid, wind)
+currentCard.append(city, date, icon, temp, humid, wind)
 document.querySelector("#today").append(currentCard)
     })
 }
@@ -67,7 +70,8 @@ function forecast(lat, lon){
         forecastDiv.setAttribute("class", "forecastStyle")
 
         forecastDiv.setAttribute("style", "margin: 15px; border: 3px solid black")
-
+    var date = document.createElement("h4")
+    date.textContent =  moment.unix(forecastData.list[i].dt).format("MM/DD/YYYY")
         var icon = document.createElement("img")
         icon.setAttribute("src", `https://openweathermap.org/img/wn/${forecastData.list[i].weather[0].icon}@2x.png`)
        
@@ -80,7 +84,7 @@ function forecast(lat, lon){
         var wind = document.createElement("h4")
         wind.textContent = "Wind Speed: " + forecastData.list[i].wind.speed + " mph"
 
-        forecastDiv.append(icon, temp, humid, wind)
+        forecastDiv.append(date, icon, temp, humid, wind)
         document.querySelector("#forecast").append(forecastDiv)
     }
     })
