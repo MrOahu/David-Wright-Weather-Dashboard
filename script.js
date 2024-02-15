@@ -23,7 +23,7 @@ forecast (weatherData[0].lat, weatherData[0].lon)
 
 
 function currentWeather(lat, lon){
-    fetch (`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIkey}&units=imperial`)
+    fetch (`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&limit=5&appid=${APIkey}&units=imperial`)
     .then(response => response.json())
     .then(currentData => {
         console.log(currentData)
@@ -62,15 +62,26 @@ function forecast(lat, lon){
         console.log(forecastData)
 
     for(var i = 4; i < forecastData.list.length; i = i + 8){
+
+        var forecastDiv = document.createElement("div")
+        forecastDiv.setAttribute("class", "forecastStyle")
+
+        forecastDiv.setAttribute("style", "margin: 15px; border: 3px solid black")
+
+        var icon = document.createElement("img")
+        icon.setAttribute("src", `https://openweathermap.org/img/wn/${forecastData.list[i].weather[0].icon}@2x.png`)
+       
         var temp = document.createElement("h4")
         temp.textContent = "Temperature: " + forecastData.list[i].main.temp + " F"
 
-var humid = document.createElement("h4")    
-humid.textContent = "Humidity: " + forecastData.list[i].main.humidity + "%"
+        var humid = document.createElement("h4")    
+        humid.textContent = "Humidity: " + forecastData.list[i].main.humidity + "%"
 
-var wind = document.createElement("h4")
-wind.textContent = "Wind Speed: " + forecastData.list[i].wind.speed + " mph"
-        document.querySelector("#forecast").append(temp, humid, wind)
+        var wind = document.createElement("h4")
+        wind.textContent = "Wind Speed: " + forecastData.list[i].wind.speed + " mph"
+
+        forecastDiv.append(icon, temp, humid, wind)
+        document.querySelector("#forecast").append(forecastDiv)
     }
     })
 }
