@@ -11,7 +11,7 @@ searchBtn.addEventListener("click", function(){
 })
 
 function geoCode(cityname){
-fetch (`https://api.openweathermap.org/geo/1.0/direct?q=${cityname}&limit=2&appid=${APIkey}`)
+fetch (`http://api.openweathermap.org/geo/1.0/direct?q=${cityname}&limit=2&appid=${APIkey}`)
 .then(response => response.json())
 .then(weatherData => {
     console.log(weatherData)
@@ -23,7 +23,7 @@ forecast (weatherData[0].lat, weatherData[0].lon)
 
 
 function currentWeather(lat, lon){
-    fetch (`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&limit=5&appid=${APIkey}&units=imperial`)
+    fetch (`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&limit=5&appid=${APIkey}&units=imperial`)
     .then(response => response.json())
     .then(currentData => {
         console.log(currentData)
@@ -59,7 +59,7 @@ document.querySelector("#today").append(currentCard)
 
 
 function forecast(lat, lon){
-    fetch (`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIkey}&units=imperial`)
+    fetch (`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIkey}&units=imperial`)
     .then(response => response.json())
     .then(forecastData => {
         console.log(forecastData)
