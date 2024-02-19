@@ -13,9 +13,9 @@ Technologies Used: HTML, CSS, JavaScript, jQuery, day.js
 
 ## Application URL's
 
-GitHub Repository URL:
+GitHub Repository URL: https://github.com/MrOahu/David-Wright-Weather-Dashboard
 
-Live Application URL: 
+Live Application URL: https://mroahu.github.io/David-Wright-Weather-Dashboard/
 
 ## Author
 David Wright
