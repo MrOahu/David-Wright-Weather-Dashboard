@@ -8,7 +8,14 @@ Technologies Used: HTML, CSS, JavaScript, jQuery, day.js
 
 ## Application Image
 
+![image](https://github.com/MrOahu/David-Wright-Weather-Dashboard/assets/153314451/9d4f50f3-0d84-440d-930f-56c513716479)
+
+
 ## Application URL's
+
+GitHub Repository URL:
+
+Live Application URL: 
 
 ## Author
 David Wright
