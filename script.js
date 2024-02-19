@@ -63,7 +63,8 @@ function forecast(lat, lon){
     .then(response => response.json())
     .then(forecastData => {
         console.log(forecastData)
-
+        //clears out data from previous search before loading new forecast data
+        document.querySelector("#forecast").innerHTML = ""
     for(var i = 4; i < forecastData.list.length; i = i + 8){
 
         var forecastDiv = document.createElement("div")
